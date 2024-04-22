@@ -41,7 +41,7 @@
         '';
         config = {
           WorkingDir = "./";
-          Cmd = [ "${app.dependencyEnv}/bin/uvicorn" "base_api.main:app" ];
+          Cmd = [ "${app.dependencyEnv}/bin/uvicorn" "base_api.main:app" "--host=0.0.0.0" ];
           ExposedPorts = {
             "8000/tcp" = { };
           };

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fastapi-nix-test"
+name = "base_api"
 version = "0.1.0"
 description = ""
 authors = ["Athul Cyriac Ajay <athul8720@gmail.com>"]
@@ -11,7 +11,7 @@ fastapi = "^0.110.2"
 uvicorn = {extras = ["standard"], version = "^0.29.0"}
 
 [tool.poetry.scripts]
-start = "app:main"
+start = "base_api.main:start"
 
 [build-system]
 requires = ["poetry-core"]

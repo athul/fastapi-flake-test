@@ -28,19 +28,9 @@
       dockerImage = pkgs.dockerTools.buildLayeredImage {
         name = "base_api";
         tag = "latest";
-        contents = [ app.dependencyEnv pkgs.bashInteractive pkgs.python3 pkgs.poetry ];
-        # copyToRoot = pkgs.buildEnv {
-        #   name = "base";
-        #   paths = [ pkgs.bashInteractive pkgs.poetry pkgs.python3 ];
-        #   # after = pkgs.poetry.install { };
-        # };
-        extraCommands = ''
-          pwd
-          ls
-          ls ${app}
-        '';
+        created = "now";
+        contents = [ app.dependencyEnv pkgs.bashInteractive pkgs.bat pkgs.less pkgs.eza ];
         config = {
-          WorkingDir = "./";
           Cmd = [ "${app.dependencyEnv}/bin/uvicorn" "base_api.main:app" "--host=0.0.0.0" ];
           ExposedPorts = {
             "8000/tcp" = { };
